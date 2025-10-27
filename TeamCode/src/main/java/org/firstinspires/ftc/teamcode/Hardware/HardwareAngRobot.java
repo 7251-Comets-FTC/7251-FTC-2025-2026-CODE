@@ -24,7 +24,7 @@ public class HardwareAngRobot {
 
     /* Public Opmode Members */
     public DcMotor
-            motor1,motor2, motor3, motor4, motor5, motor6, motor7, motor8;
+            motor1, motor2, motor3, motor4, motor5, motor6, motor7, motor8;
 
     public Servo servo1, servo2;
     BNO055IMU imu;
@@ -36,18 +36,18 @@ public class HardwareAngRobot {
 
     public void init() {
         /* Drive Hardware */
-          motor1 = myOpMode.hardwareMap.get(DcMotor.class, "motor1");
-          motor2 = myOpMode.hardwareMap.get(DcMotor.class, "motor2");
-          motor3 = myOpMode.hardwareMap.get(DcMotor.class, "motor3");
-          motor4 = myOpMode.hardwareMap.get(DcMotor.class, "motor4");
-          motor5 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorRight");
-          motor6 = myOpMode.hardwareMap.get(DcMotor.class, "viperLeft");// soon for viperslide
-          motor7 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorFwd");
-          motor8 = myOpMode.hardwareMap.get(DcMotor.class, "viperRight"); //soon for viperslide
-//          motor8 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorWrist");
+        motor1 = myOpMode.hardwareMap.get(DcMotor.class, "motor1");
+        motor2 = myOpMode.hardwareMap.get(DcMotor.class, "motor2");
+        motor3 = myOpMode.hardwareMap.get(DcMotor.class, "motor3");
+        motor4 = myOpMode.hardwareMap.get(DcMotor.class, "motor4");
+        motor5 = myOpMode.hardwareMap.get(DcMotor.class, "launchmech");
 //          servo1 = myOpMode.hardwareMap.get(Servo.class, "servo1");
+//          motor5 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorRight"); // old arm usuage
+//          motor6 = myOpMode.hardwareMap.get(DcMotor.class, "viperLeft");// soon for viperslide
+//          motor7 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorFwd"); //old arm usuage
+//          motor8 = myOpMode.hardwareMap.get(DcMotor.class, "viperRight"); //soon for viperslide
+//          motor8 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorWrist");
 //          motorArm = myOpMode.hardwareMap.get(DcMotor.class, "arm");
-
 
 
         motor1.setDirection(DcMotor.Direction.REVERSE);
@@ -57,26 +57,22 @@ public class HardwareAngRobot {
         motor2.setPower(0); //
         motor3.setPower(0); //
         motor4.setPower(0); //
-        motor5.setPower(0); //
-        motor6.setPower(0); //
-        motor7.setPower(0); //
-        motor8.setPower(0);
+        motor5.setPower(0);
+//        motor5.setPower(0); //
+//        motor6.setPower(0); //
+//        motor7.setPower(0); //
+//        motor8.setPower(0);
         /* Intake Hardware */
 
         /* Servos */
-        servo1 = myOpMode.hardwareMap.get(Servo.class, "servo1");
-        servo2 = myOpMode.hardwareMap.get(Servo.class, "servo2");
+//        servo1 = myOpMode.hardwareMap.get(Servo.class, "servo1");
+//        servo2 = myOpMode.hardwareMap.get(Servo.class, "servo2");
 
         //servo2.setPosition(1);
-        motor5.setPower(-0.4);
-        motor6.setPower(.4);
-        sleep(100);
-        motor5.setPower(0); //
-        motor6.setPower(0); //
     }
+}
 
 
 
     /* Intake Methods */
 
-}

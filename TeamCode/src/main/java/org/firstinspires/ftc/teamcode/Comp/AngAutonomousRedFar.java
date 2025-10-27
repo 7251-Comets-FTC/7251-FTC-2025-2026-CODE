@@ -33,7 +33,7 @@ public class AngAutonomousRedFar extends LinearOpMode {
         motorBackRight = hardwareMap.dcMotor.get("motor2");
         motorFrontLeft = hardwareMap.dcMotor.get("motor3");
         motorFrontRight = hardwareMap.dcMotor.get("motor4");
-        motorArm = hardwareMap.dcMotor.get("actuatorRight");
+        motorArm = hardwareMap.dcMotor.get("launchmech");
 
 
         motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
