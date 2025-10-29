@@ -75,12 +75,9 @@ public class AngAutonomousRedFar extends LinearOpMode {
         telemetry.update();
 
         waitForStart();
-
+//      THIS IS WHAT IS NEEDED TO MOVE THE ROBOT ITSELF, DO NOT MODIFY ANY OF THE OTHER CODE UNLESS ADDING A MOTOR OR SERVO.
+//      I REPEAT DO NOT MODIFY UNLESS NEEDED, ONLY MODIFY THE VALUES IN THIS PART OF THE CODE.
 //        armLiftUp(0.3, -10, 15);
-        strafeDrive(0.3, 50,  2);
-        strafeDrive(0.3, -10, 2);
-        linearDrive(0.3, -7, 0.3, 18, 3);
-
 
         strafeDrive(0.3, -120, 3);
 

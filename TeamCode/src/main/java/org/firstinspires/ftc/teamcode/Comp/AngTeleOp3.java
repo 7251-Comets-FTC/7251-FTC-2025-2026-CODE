@@ -20,7 +20,7 @@ public class AngTeleOp3 extends LinearOpMode {
         telemetry.addData("Status", "Init Complete");
 
         waitForStart();
-        //Wheels//
+//      This is what Actually Controls the Robot, Motors 1-4 are Mechanum Wheel Control and Motor 5 is Launching Wheel.
         while (opModeIsActive()) {
 
 
