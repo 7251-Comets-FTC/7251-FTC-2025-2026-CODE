@@ -79,9 +79,9 @@ public class AngAutonomousRedFar extends LinearOpMode {
 //      I REPEAT DO NOT MODIFY UNLESS NEEDED, ONLY MODIFY THE VALUES IN THIS PART OF THE CODE.
 //        armLiftUp(0.3, -10, 15);
 
-        strafeDrive(0.3, -120, 3);
+        strafeDrive(0.3, -50, 3);
 
-        linearDrive(0.3, -7, 0.3, -35, 3);
+//        linearDrive(0.3, -7, 0.3, -35, 3);
 
 
         // strafeDrive - assuming arrow is front: right is negative, left is positive

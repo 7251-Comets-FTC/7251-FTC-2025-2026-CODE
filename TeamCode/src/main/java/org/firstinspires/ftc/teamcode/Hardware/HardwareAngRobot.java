@@ -35,13 +35,15 @@ public class HardwareAngRobot {
     }
 
     public void init() {
-        /* Drive Hardware */
+        /* Wheels (1150 RPM Motors) */
         motor1 = myOpMode.hardwareMap.get(DcMotor.class, "motor1");
         motor2 = myOpMode.hardwareMap.get(DcMotor.class, "motor2");
         motor3 = myOpMode.hardwareMap.get(DcMotor.class, "motor3");
         motor4 = myOpMode.hardwareMap.get(DcMotor.class, "motor4");
+        // Launching Mech (6000 RPM Motors and One 360 Speed Servo) //
         motor5 = myOpMode.hardwareMap.get(DcMotor.class, "launchmech");
-//          servo1 = myOpMode.hardwareMap.get(Servo.class, "servo1");
+        motor6 = myOpMode.hardwareMap.get(DcMotor.class, "launchmech1");
+        servo1 = myOpMode.hardwareMap.get(Servo.class, "launchservo");
 //          motor5 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorRight"); // old arm usuage
 //          motor6 = myOpMode.hardwareMap.get(DcMotor.class, "viperLeft");// soon for viperslide
 //          motor7 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorFwd"); //old arm usuage

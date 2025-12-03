@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.CRServo;
 
 
 import org.firstinspires.ftc.teamcode.Hardware.HardwareAngRobot;
@@ -25,17 +26,12 @@ public class AngTeleOp3 extends LinearOpMode {
 
 
 
-            if (gamepad1.a) {
-                robot.motor5.setPower(1.0);
-            }
-            else {
-                robot.motor5.setPower(0.0);
-            }
 
             double x = -gamepad1.left_stick_y;
             double y = gamepad1.left_stick_x * 1.1;
             double rx = -gamepad1.right_stick_x * -1;
             double slowdown = 1;
+            double slowdown1 = 1;
             double throttle_control = 0.6;
 
             if (gamepad1.dpad_up) {
@@ -69,6 +65,29 @@ public class AngTeleOp3 extends LinearOpMode {
             robot.motor3.setPower(frontRightPower * throttle_control * slowdown);
             robot.motor4.setPower(backRightPower * throttle_control * slowdown);
 
+            if (gamepad1.right_bumper) {
+                slowdown1 = 0.45;
+            }
+
+            else {
+                slowdown1 = 1.0;
+            }
+
+            if (gamepad1.a) {
+                robot.tor5.setPower(1 * slowdown1);
+                robot.motor6.setPower(-1 * slowdown1);
+            }
+            else {
+                robot.motor5.setPower(0.0);
+                robot.motor6.setPower(0.0);
+            }
+
+            if (gamepad1.b) {
+                robot.servo1.setPosition(1.5);
+            }
+            else {
+                robot.servo1.setPosition(0.0);
+            }
 
 
 

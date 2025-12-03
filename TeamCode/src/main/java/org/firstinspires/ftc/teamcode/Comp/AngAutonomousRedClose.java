@@ -4,11 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import org.firstinspires.ftc.vision.VisionPortal;
 
 
 @Autonomous(name="AngAutonomousRedClose", group="Comp")
@@ -37,7 +33,7 @@ public class AngAutonomousRedClose extends LinearOpMode {
         motorBackRight = hardwareMap.dcMotor.get("motor2");
         motorFrontLeft = hardwareMap.dcMotor.get("motor3");
         motorFrontRight = hardwareMap.dcMotor.get("motor4");
-        motorArm = hardwareMap.dcMotor.get("actuatorRight");
+        motorArm = hardwareMap.dcMotor.get("launchmech");
 
 
         motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
@@ -79,15 +75,21 @@ public class AngAutonomousRedClose extends LinearOpMode {
         telemetry.update();
 
         waitForStart();
+//      THIS IS WHAT IS NEEDED TO MOVE THE ROBOT ITSELF, DO NOT MODIFY ANY OF THE OTHER CODE UNLESS ADDING A MOTOR OR SERVO.
+//      I REPEAT DO NOT MODIFY UNLESS NEEDED, ONLY MODIFY THE VALUES IN THIS PART OF THE CODE.
+//        armLiftUp(0.3, -10, 15);
+
+        linearDrive(0.3, -7, 0.3, -35, 3);
+        strafeDrive(0.3,5,3);
 
 
-        strafeDrive(.3, 50,  3);
-       // linearDrive(.3, 39.5, 3000);
 
         // strafeDrive - assuming arrow is front: right is negative, left is positive
         // linearDrive - assuming arrow is front: front is negative, back is positive
 
-        telemetry.addData("Path6", "Complete");
+
+
+        telemetry.addData("Path", "Complete");
         telemetry.update();
     }
 
@@ -169,25 +171,29 @@ public class AngAutonomousRedClose extends LinearOpMode {
 
         //new
         motorArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        newMotor5Target = motorArm.getCurrentPosition() + (int) (target2);
+        newMotor5Target = motorArm.getCurrentPosition() + (int) (target);
 
 
-        newMotor2Target = motorBackRight.getCurrentPosition() + (int) (target * COUNTS_PER_INCH / 4);
-        newMotor1Target = motorBackLeft.getCurrentPosition() + (int) (target * COUNTS_PER_INCH / 4);
-        newMotor3Target = motorFrontLeft.getCurrentPosition() + (int) (target * COUNTS_PER_INCH / 4);
-        newMotor4Target = motorFrontRight.getCurrentPosition() + (int) (target * COUNTS_PER_INCH / 4);
+        newMotor2Target = motorBackRight.getCurrentPosition() + (int) (target2 * COUNTS_PER_INCH / 4);
+        newMotor1Target = motorBackLeft.getCurrentPosition() + (int) (target2 * COUNTS_PER_INCH / 4);
+        newMotor3Target = motorFrontLeft.getCurrentPosition() + (int) (target2 * COUNTS_PER_INCH / 4);
+        newMotor4Target = motorFrontRight.getCurrentPosition() + (int) (target2 * COUNTS_PER_INCH / 4);
 
         // Ensure that the opmode is still active
         if (opModeIsActive()) {
+
+            motorArm.setTargetPosition(newMotor5Target);
+            motorArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            armPower = speed;
+            motorArm.setPower(armPower);
+
 
             motorBackLeft.setTargetPosition(newMotor1Target);
             motorBackRight.setTargetPosition(newMotor2Target);
             motorFrontLeft.setTargetPosition(newMotor3Target);
             motorFrontRight.setTargetPosition(newMotor4Target);
-            motorArm.setTargetPosition(newMotor5Target);
 
 
-            motorArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             motorBackLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             motorBackRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             motorFrontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -198,13 +204,13 @@ public class AngAutonomousRedClose extends LinearOpMode {
             runtime.reset();
 
 
-            frontLeftPower = speed;
-            frontRightPower = speed * -1;
-            backLeftPower = speed * -1;
-            backRightPower = speed;
+            frontLeftPower = speed2;
+            frontRightPower = speed2 * -1;
+            backLeftPower = speed2 * -1;
+            backRightPower = speed2;
 
-            armPower = speed2;
-            motorArm.setPower((armPower));
+            armPower = speed;
+            motorArm.setPower(armPower);
 
 
             motorBackLeft.setPower(frontLeftPower);
