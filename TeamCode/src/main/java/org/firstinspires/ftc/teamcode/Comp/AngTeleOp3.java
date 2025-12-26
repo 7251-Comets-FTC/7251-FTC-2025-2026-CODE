@@ -66,7 +66,7 @@ public class AngTeleOp3 extends LinearOpMode {
             robot.motor4.setPower(backRightPower * throttle_control * slowdown);
 
             if (gamepad1.right_bumper) {
-                slowdown1 = 0.45;
+                slowdown1 = 0.3;
             }
 
             else {
@@ -74,7 +74,7 @@ public class AngTeleOp3 extends LinearOpMode {
             }
 
             if (gamepad1.a) {
-                robot.tor5.setPower(1 * slowdown1);
+                robot.motor5.setPower(1 * slowdown1);
                 robot.motor6.setPower(-1 * slowdown1);
             }
             else {
