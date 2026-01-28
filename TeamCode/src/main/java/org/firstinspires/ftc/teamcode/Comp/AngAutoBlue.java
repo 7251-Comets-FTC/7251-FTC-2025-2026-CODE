@@ -1,14 +1,14 @@
 package org.firstinspires.ftc.teamcode.Comp;
 
-        import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-        import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-        import com.qualcomm.robotcore.hardware.CRServo;
-        import com.qualcomm.robotcore.hardware.DcMotor;
-        import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="AngAutonomousRedFar", group="Comp")
-public class AngAutonomousRedFar extends LinearOpMode {
+@Autonomous(name="AngAutonomousBlue", group="Comp")
+public class AngAutoBlue extends LinearOpMode {
 
     public DcMotor motorFrontLeft, motorFrontRight, motorBackRight, motorBackLeft, motorArm;
     public CRServo servoRotate;
@@ -79,10 +79,10 @@ public class AngAutonomousRedFar extends LinearOpMode {
 //      I REPEAT DO NOT MODIFY UNLESS NEEDED, ONLY MODIFY THE VALUES IN THIS PART OF THE CODE.
 //        armLiftUp(0.3, -10, 15);
 
-        strafeDrive(0.3, -50, 3);
+//        strafeDrive(0.3, 50, 3);
 
-//        linearDrive(0.3, -7, 0.3, -35, 3);
-
+        linearDrive(0.3, -350, 0.3, -350, 3);
+        strafeDrive(0.3, 70, 3);
 
         // strafeDrive - assuming arrow is front: right is negative, left is positive
         // linearDrive - assuming arrow is front: front is negative, back is positive
