@@ -79,8 +79,8 @@ public class AngAutoRed extends LinearOpMode {
 //      I REPEAT DO NOT MODIFY UNLESS NEEDED, ONLY MODIFY THE VALUES IN THIS PART OF THE CODE.
 //        armLiftUp(0.3, -10, 15);
 
-        linearDrive(0.3, -350, 0.3, -350, 3);
-        strafeDrive(0.3, -70, 3);
+        linearDrive(0.3, -500, 0.3, -500, 3);
+        strafeDrive(0.2, -20, 3);
 
 
 

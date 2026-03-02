@@ -27,9 +27,9 @@ public class AngTeleOp3 extends LinearOpMode {
 
 
 
-            double x = gamepad1.left_stick_y;
-            double y = -gamepad1.left_stick_x * 1.1;
-            double rx = -gamepad1.right_stick_x * -1;
+            double x = -gamepad1.left_stick_x;
+            double y = gamepad1.left_stick_y * 1.1;
+            double rx = gamepad1.right_stick_x * -1;
             double slowdown = 1;
             double slowdown1 = 1;
             double throttle_control = 0.6;
@@ -60,13 +60,13 @@ public class AngTeleOp3 extends LinearOpMode {
                 slowdown -= 0.5;
             }
 
-            robot.motor1.setPower(frontLeftPower * throttle_control * slowdown);
-            robot.motor2.setPower(backLeftPower * throttle_control * slowdown);
-            robot.motor3.setPower(frontRightPower * throttle_control * slowdown);
-            robot.motor4.setPower(backRightPower * throttle_control * slowdown);
+            robot.motor3.setPower(frontLeftPower * throttle_control * slowdown);
+            robot.motor4.setPower(backLeftPower * throttle_control * slowdown);
+            robot.motor1.setPower(frontRightPower * throttle_control * slowdown);
+            robot.motor2.setPower(backRightPower * throttle_control * slowdown);
 
             if (gamepad2.right_bumper) {
-                slowdown1 = 0.615;
+                slowdown1 = 0.5;
             }
 
             else {
@@ -74,20 +74,27 @@ public class AngTeleOp3 extends LinearOpMode {
             }
 
             if (gamepad2.a) {
-                robot.motor5.setPower(-1 * slowdown1);
-                robot.motor6.setPower(1 * slowdown1);
+                robot.motor5.setPower(-0.7);
+                robot.motor6.setPower(-0.7);
             }
             else {
                 robot.motor5.setPower(0.0);
                 robot.motor6.setPower(0.0);
             }
 
-            if (gamepad2.x) {
-                robot.servo1.setPosition(1.5);
+            if (gamepad2.b){
+                robot.motor7.setPower(-1);
             }
             else {
-                robot.servo1.setPosition(0.0);
+                robot.motor7.setPower(0);
             }
+
+            if (gamepad2.x) {
+                robot.servo1.setPosition(1);
+            }
+            else {
+                robot.servo1.setPosition(0.8);
+           }
 
 
 
