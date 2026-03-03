@@ -90,8 +90,8 @@ public class AngTeleOp3 extends LinearOpMode {
             }
 
             if (gamepad2.x) {
-                robot.servo1.setPosition(1); //servo1
-                robot.servo2.setPosition(1);
+                robot.servo1.setPosition(1); //servo1=launch lift up
+                robot.servo2.setPosition(1); //servo2=rear servo
             }
             else {
                 robot.servo1.setPosition(0.8);
