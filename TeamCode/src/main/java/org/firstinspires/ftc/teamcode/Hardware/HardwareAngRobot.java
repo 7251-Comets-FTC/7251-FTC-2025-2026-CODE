@@ -45,6 +45,7 @@ public class HardwareAngRobot {
         motor6 = myOpMode.hardwareMap.get(DcMotor.class, "intakemechfoward");
         motor7 = myOpMode.hardwareMap.get(DcMotor.class, "launchmechback");
         servo1 = myOpMode.hardwareMap.get(Servo.class, "liftservo");
+        servo2 = myOpMode.hardwareMap.get(Servo.class, "seperateservo");
 //          motor5 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorRight"); // old arm usuage
 //          motor6 = myOpMode.hardwareMap.get(DcMotor.class, "viperLeft");// soon for viperslide
 //          motor7 = myOpMode.hardwareMap.get(DcMotor.class, "actuatorFwd"); //old arm usuage
@@ -71,6 +72,8 @@ public class HardwareAngRobot {
 //        servo1 = myOpMode.hardwareMap.get(Servo.class, "servo1");
 //        servo2 = myOpMode.hardwareMap.get(Servo.class, "servo2");
         servo1.setPosition(0.8);
+        servo2.setPosition(0.8);
+
     }
 }
 
