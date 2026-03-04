@@ -78,10 +78,10 @@ public class AngAutoBlue extends LinearOpMode {
 //      THIS IS WHAT IS NEEDED TO MOVE THE ROBOT ITSELF, DO NOT MODIFY ANY OF THE OTHER CODE UNLESS ADDING A MOTOR OR SERVO.
 //      I REPEAT DO NOT MODIFY UNLESS NEEDED, ONLY MODIFY THE VALUES IN THIS PART OF THE CODE.
 //        armLiftUp(0.3, -10, 15);
+        linearDrive(0.3, 300, 0.3, 100, 3);
 
-//        strafeDrive(0.3, 50, 3);
-        turnDrive(0, 0, 1, -1000, 3);
-        linearDrive(0.3, 0, 0.3, 33, 3);
+        strafeDrive(0.3, 55, 3);
+//        turnDrive(0, 0, 1, -1000, 3);
 //        strafeDrive(0.2, 20, 3);
 //        turnDrive(0, 0, 1, -1000, 3);
 //        linearDrive(0,0,0.3);
