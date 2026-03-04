@@ -71,8 +71,8 @@ public class HardwareAngRobot {
         /* Servos */
 //        servo1 = myOpMode.hardwareMap.get(Servo.class, "servo1");
 //        servo2 = myOpMode.hardwareMap.get(Servo.class, "servo2");
-        servo1.setPosition(0.8);
-        servo2.setPosition(0.8);
+        servo1.setPosition(1);
+        servo2.setPosition(1);
 
     }
 }

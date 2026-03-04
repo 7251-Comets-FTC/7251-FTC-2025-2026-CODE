@@ -74,8 +74,8 @@ public class AngTeleOp3 extends LinearOpMode {
             }
 
             if (gamepad2.a) {
-                robot.motor5.setPower(-0.7); //motor5=front intake
-                robot.motor6.setPower(-0.7); //motor6=rear intake
+                robot.motor5.setPower(-0.4); //motor5=front intake
+                robot.motor6.setPower(-0.4); //motor6=rear intake
             }
             else {
                 robot.motor5.setPower(0.0);
@@ -83,19 +83,19 @@ public class AngTeleOp3 extends LinearOpMode {
             }
 
             if (gamepad2.b){
-                robot.motor7.setPower(-0.5); //motor7=launch
+                robot.motor7.setPower(-0.85); //motor7=launch
             }
             else {
                 robot.motor7.setPower(0);
             }
 
             if (gamepad2.x) {
-                robot.servo1.setPosition(1); //servo1
-                robot.servo2.setPosition(1);
+                robot.servo1.setPosition(0.6); //servo1
+                robot.servo2.setPosition(0.6);
             }
             else {
-                robot.servo1.setPosition(0.8);
-                robot.servo2.setPosition(0.8);
+                robot.servo1.setPosition(1);
+                robot.servo2.setPosition(1);
             }
         }
     }
