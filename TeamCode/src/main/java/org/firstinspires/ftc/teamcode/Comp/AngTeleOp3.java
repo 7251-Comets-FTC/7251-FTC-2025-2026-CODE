@@ -12,6 +12,7 @@ import org.firstinspires.ftc.teamcode.Hardware.HardwareAngRobot;
 
 @TeleOp(name="AngTeleOp-Revamp", group="Comp")
 public class AngTeleOp3 extends LinearOpMode {
+    boolean lastButtonA=false;
 
     HardwareAngRobot robot = new HardwareAngRobot(this);
     @Override
@@ -25,13 +26,10 @@ public class AngTeleOp3 extends LinearOpMode {
         while (opModeIsActive()) {
 
 
-
-
             double x = -gamepad1.left_stick_x;
             double y = gamepad1.left_stick_y * 1.1;
             double rx = gamepad1.right_stick_x * -1;
             double slowdown = 1;
-            double slowdown1 = 1;
             double throttle_control = 0.6;
 
             if (gamepad1.dpad_up) {
@@ -65,36 +63,54 @@ public class AngTeleOp3 extends LinearOpMode {
             robot.motor1.setPower(frontRightPower * throttle_control * slowdown);
             robot.motor2.setPower(backRightPower * throttle_control * slowdown);
 
-            if (gamepad2.right_bumper) {
-                slowdown1 = 0.5;
-            }
 
-            else {
-                slowdown1 = 1.0;
+            boolean currentButtonA=gamepad2.a;
+            if (currentButtonA) {
+                robot.motor5.setPower(-0.7); //turn front intake
+                robot.motor6.setPower(-0.7); //turn rear intake
             }
-
-            if (gamepad2.a) {
-                robot.motor5.setPower(-0.7); //motor5=front intake
-                robot.motor6.setPower(-0.7); //motor6=rear intake
+            else if(lastButtonA) {
+                robot.motor5.setPower(0.4);
+                robot.motor6.setPower(0.4);
+                sleep(400);
+                robot.motor5.setPower(0);
+                robot.motor6.setPower(0);
             }
-            else {
-                robot.motor5.setPower(0.0);
-                robot.motor6.setPower(0.0);
+            else{
+                robot.motor5.setPower(0);
+                robot.motor6.setPower(0);
             }
+            lastButtonA=currentButtonA;
 
             if (gamepad2.b){
-                robot.motor7.setPower(-0.5); //motor7=launch
+                robot.motor7.setPower(-0.7); //motor7=launch
+            }
+            else if(gamepad2.right_bumper){
+                robot.motor7.setPower(-0.9);
             }
             else {
                 robot.motor7.setPower(0);
             }
 
+            if(gamepad2.y){
+                robot.motor5.setPower(0.3);
+                robot.motor6.setPower(0.3);
+                if(gamepad2.left_bumper){
+                    robot.motor7.setPower(0.2);
+                }
+            }
+            else{
+                robot.motor5.setPower(0);
+                robot.motor6.setPower(0);
+                robot.motor7.setPower(0);
+            }
+
             if (gamepad2.x) {
-                robot.servo1.setPosition(1); //servo1
+                robot.servo1.setPosition(0.75); //servo1=lift up
                 robot.servo2.setPosition(1);
             }
             else {
-                robot.servo1.setPosition(0.8);
+                robot.servo1.setPosition(1);
                 robot.servo2.setPosition(0.8);
             }
         }
